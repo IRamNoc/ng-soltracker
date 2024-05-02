@@ -1,0 +1,43 @@
+<div nxLayout="grid">
+    <div nxRow class="nx-margin-bottom-m">
+        <div nxCol="12, 12, 6">
+            <nx-formfield label="Car brand">
+                <nx-dropdown [valueFormatter]="toText">
+                    <nx-dropdown-item
+                        *ngFor="let option of options"
+                        [value]="option"
+                    ></nx-dropdown-item>
+                </nx-dropdown>
+            </nx-formfield>
+        </div>
+        <div nxCol="12, 12, 6">
+            <nx-formfield label="Preselected Dropdown">
+                <nx-dropdown value="BMW">
+                    <nx-dropdown-item value="BMW"></nx-dropdown-item>
+                    <nx-dropdown-item value="Audi"></nx-dropdown-item>
+                    <nx-dropdown-item value="Volvo"></nx-dropdown-item>
+                    <nx-dropdown-item value="Mini"></nx-dropdown-item>
+                </nx-dropdown>
+            </nx-formfield>
+        </div>
+    </div>
+
+    <div nxRow>
+        <div nxCol="12, 12, 6">
+            <nx-formfield label="Readonly Dropdown">
+                <nx-dropdown value="BMW" readonly>
+                    <nx-dropdown-item value="BMW"></nx-dropdown-item>
+                    <nx-dropdown-item value="Audi"></nx-dropdown-item>
+                </nx-dropdown>
+            </nx-formfield>
+        </div>
+        <div nxCol="12, 12, 6">
+            <nx-formfield label="Disabled Dropdown">
+                <nx-dropdown value="BMW" disabled>
+                    <nx-dropdown-item value="BMW"></nx-dropdown-item>
+                    <nx-dropdown-item value="Audi"></nx-dropdown-item>
+                </nx-dropdown>
+            </nx-formfield>
+        </div>
+    </div>
+</div>

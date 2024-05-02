@@ -1,0 +1,44 @@
+<div class="nx-phone-input___wrapper">
+    <nx-dropdown
+        [class.hide]="readonly && !disabled"
+        [value]="countryCode"
+        #dropdown
+        [showFilter]="true"
+        [disabled]="disabled"
+        [overlayLabel]="areaCodeLabel"
+        (valueChange)="_onCountryChange($event)"
+        [options]="_sortedCountries"
+        panelMinWidth="none"
+    >
+        <span *nxClosedLabel>+{{ _getCallingCode(dropdown.value) }}</span>
+    </nx-dropdown>
+
+    <!-- adding c-input for the styles and to not get the overhead of the nxInput directive -->
+    <input
+        class="c-input"
+        [class.hide]="readonly && !disabled"
+        type="tel"
+        (blur)="_onInputBlur()"
+        (focus)="_onInputFocus()"
+        [(ngModel)]="_inputValue"
+        (ngModelChange)="_onInput()"
+        [attr.aria-describedby]="_describedBy"
+        [attr.aria-labelledby]="_ariaLabelledBy"
+        [attr.required]="required || null"
+        [attr.disabled]="disabled || null"
+        [attr.placeholder]="placeholder || null"
+        [attr.aria-invalid]="errorState"
+    />
+
+    <input
+        class="c-input readonly-input"
+        *ngIf="readonly && !disabled"
+        type="tel"
+        [attr.readonly]="readonly || null"
+        [attr.aria-readonly]="readonly || null"
+        [value]="_getReadonlyValue()"
+        [attr.aria-describedby]="_describedBy"
+        [attr.aria-labelledby]="_ariaLabelledBy"
+        [attr.aria-invalid]="errorState"
+    />
+</div>

@@ -1,0 +1,104 @@
+@import '../shared-styles/index';
+
+$popover-arrow-size: nx-spacer(xs);
+$popover-arrow-offset: -#{$popover-arrow-size * 0.5 - nx-border-size(xs)};
+$popover-border-radius: nx-border-radius(s);
+$popover-border-size: nx-border-size(xs);
+
+$arrow-shadow: -2px -2px -4px v(shadow-small-color);
+
+$padding-content: nx-spacer(2m) - $popover-border-size;
+
+.nx-popover {
+    position: relative;
+}
+
+.nx-popover__content {
+    @include type-style(popover-content);
+    background-color: v(popover-background-color);
+    color: v(popover-text-color);
+    border: $popover-border-size solid v(popover-border-color);
+    border-radius: $popover-border-radius;
+    box-shadow: v(shadow-small);
+    padding: nx-spacer(m) nx-spacer(2m);
+    display: block;
+
+    &:has(.nx-popover__close-icon) {
+        padding: nx-spacer(m) nx-spacer(4m) nx-spacer(m) nx-spacer(2m);
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    // don't show inner dotted border on firefox
+    &::-moz-focus-inner {
+        border: 0;
+    }
+}
+
+.nx-popover__close-icon {
+    display: flex;
+    position: absolute;
+    top: nx-spacer(s);
+    right: nx-spacer(s);
+    cursor: pointer;
+    font-size: v(popover-close-icon-size);
+    color: v(popover-close-icon-color);
+
+    border-radius: 2px;
+
+    [dir='rtl'] & {
+        right: auto;
+        left: nx-spacer(3xs);
+    }
+
+    &:focus {
+        outline: none;
+    }
+    // don't show inner dotted border on firefox
+    &::-moz-focus-inner {
+        border: 0;
+    }
+
+    @media screen and (forced-colors: active) {
+        color: buttonText;
+    }
+}
+
+.nx-popover__close-icon.cdk-keyboard-focused {
+    @include focus-style;
+}
+
+.nx-popover__arrow {
+    width: $popover-arrow-size;
+    height: $popover-arrow-size;
+    background-color: inherit;
+    position: absolute;
+    transform: translate(-50%, 0);
+    border-top: $popover-border-size solid v(popover-border-color);
+    border-left: $popover-border-size solid v(popover-border-color);
+}
+
+.nx-popover--top .nx-popover__arrow {
+    transform: translate(-50%, 0) rotate(225deg);
+    bottom: $popover-arrow-offset;
+    box-shadow:
+        2px 2px 1px 1px v(popover-background-color),
+        $arrow-shadow;
+}
+
+.nx-popover--right .nx-popover__arrow {
+    transform: translate(0, -50%) rotate(-45deg);
+    left: $popover-arrow-offset;
+}
+
+.nx-popover--bottom .nx-popover__arrow {
+    transform: translate(-50%, 0) rotate(45deg);
+    top: $popover-arrow-offset;
+}
+
+.nx-popover--left .nx-popover__arrow {
+    transform: translate(0, -50%) rotate(135deg);
+    right: $popover-arrow-offset;
+}

@@ -1,0 +1,14 @@
+<form>
+    <nx-formfield label="Email">
+        <input nxInput [formControl]="emailFormControl" />
+        <nx-error
+            *ngIf="emailFormControl.hasError('required')"
+            nxFormfieldError
+        >
+            This field is required.
+        </nx-error>
+        <nx-error *ngIf="emailFormControl.hasError('email')" nxFormfieldError>
+            Please enter a valid email address.
+        </nx-error>
+    </nx-formfield>
+</form>

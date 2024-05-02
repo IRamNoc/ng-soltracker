@@ -1,0 +1,17 @@
+<form [formGroup]="testForm">
+    <nx-number-stepper
+        label="Number of travellers"
+        size="big"
+        formControlName="stepperTestReactive"
+        [step]="1"
+        [min]="-3"
+        [max]="20"
+    >
+    </nx-number-stepper>
+
+    <p>Form value: {{ testForm.value | json }}</p>
+    <p>Form status: {{ testForm.status }}</p>
+    <p>
+        Form errors: {{ testForm.controls['stepperTestReactive'].errors | json}}
+    </p>
+</form>

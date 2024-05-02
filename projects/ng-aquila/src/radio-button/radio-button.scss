@@ -1,0 +1,220 @@
+@import '../shared-styles/index';
+
+$radio-border-radius: 50%;
+
+:host {
+    display: block;
+    position: relative;
+}
+
+.nx-radio__input {
+    opacity: 0;
+    position: absolute;
+}
+
+:host(.nx-radio-button--small-label) {
+    .nx-radio__label {
+        @include type-style(radio-button-small-label);
+
+        &.has-label {
+            .nx-radio__circle {
+                margin-top: v(radio-button-small-circle-margin-top);
+            }
+        }
+    }
+
+    .nx-radio__label--text:not(:empty) {
+        margin-left: v(radio-button-small-label-margin-left);
+        margin-top: v(radio-button-small-label-margin-top);
+
+        [dir='rtl'] & {
+            margin-right: v(radio-button-small-label-margin-left);
+            margin-left: initial;
+        }
+    }
+}
+
+:host(.nx-radio-button--big-label) {
+    .nx-radio__label {
+        @include type-style(radio-button-large-label);
+
+        &.has-label {
+            .nx-radio__circle {
+                margin-top: v(radio-button-large-circle-margin-top);
+            }
+        }
+    }
+
+    .nx-radio__label--text:not(:empty) {
+        margin-left: v(radio-button-large-label-margin-left);
+        margin-top: v(radio-button-large-label-margin-top);
+
+        [dir='rtl'] & {
+            margin-right: v(radio-button-large-label-margin-left);
+            margin-left: initial;
+        }
+    }
+}
+
+:host.nx-radio--negative {
+    .nx-radio__label--text {
+        color: v(negative);
+    }
+
+    .nx-radio__circle {
+        border-color: v(negative);
+    }
+
+    .nx-radio__input:checked + .nx-radio__label {
+        .nx-radio__circle {
+            border-color: v(negative);
+            background-color: transparent;
+        }
+
+        .nx-radio__dot {
+            background: v(negative);
+        }
+    }
+
+    .nx-radio__input:disabled + .nx-radio__label {
+        opacity: 0.4;
+    }
+}
+
+.nx-radio__label {
+    color: v(radio-button-label-color);
+    cursor: pointer;
+    display: flex;
+    position: relative;
+}
+
+.nx-radio__circle {
+    border-width: nx-border-size(m);
+    border-style: solid;
+    border-color: v(radio-button-circle-color);
+    border-radius: $radio-border-radius;
+    width: nx-spacer(m);
+    min-width: nx-spacer(m);
+    height: nx-spacer(m);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nx-radio__dot {
+    width: v(radio-button-dot-size);
+    height: v(radio-button-dot-size);
+    background-color: v(radio-button-dot-background-color);
+    border-radius: $radio-border-radius;
+    transition: background-color 0.2s ease;
+}
+
+.nx-radio__input:checked + .nx-radio__label {
+    .nx-radio__circle {
+        border-color: v(radio-button-selected-circle-color);
+        background-color: v(radio-button-selected-background-color);
+    }
+
+    .nx-radio__dot {
+        background-color: v(radio-button-selected-dot-color);
+    }
+}
+
+.nx-radio__input:disabled + .nx-radio__label {
+    cursor: not-allowed;
+    color: v(radio-button-disabled-text-color);
+
+    .nx-radio__circle {
+        border-color: v(radio-button-disabled-border-color);
+    }
+}
+
+.nx-radio__input:checked:disabled + .nx-radio__label {
+    .nx-radio__circle {
+        background-color: v(radio-button-disabled-selected-background-color);
+    }
+
+    .nx-radio__dot {
+        background-color: v(radio-button-disabled-selected-dot-color);
+    }
+}
+
+// error style
+:host.has-error {
+    .nx-radio__input + .nx-radio__label {
+        .nx-radio__circle {
+            border-color: v(danger);
+        }
+
+        .nx-radio__dot {
+            background-color: v(danger);
+        }
+    }
+}
+
+// focus style
+.nx-radio__input.cdk-keyboard-focused + .nx-radio__label .nx-radio__circle {
+    @include focus-style;
+}
+
+// hover styling
+:host:not(.nx-radio--negative):not(.has-error) .nx-radio__input:not(:disabled) {
+    & + .nx-radio__label:hover .nx-radio__circle {
+        border-color: v(radio-button-hover-circle-color);
+    }
+
+    &:checked + .nx-radio__label:hover .nx-radio__dot {
+        background-color: v(radio-button-hover-dot-color);
+    }
+}
+
+// active styling
+:host:not(.nx-radio--negative):not(.has-error) .nx-radio__input:not(:disabled) {
+    & + .nx-radio__label:active .nx-radio__circle {
+        border-color: v(radio-button-hover-circle-color);
+    }
+
+    &:checked + .nx-radio__label:active .nx-radio__dot {
+        background-color: v(radio-button-hover-dot-color);
+    }
+}
+
+@media screen and (forced-colors: active) {
+    :host {
+        .nx-radio__label {
+            color: buttonText !important;
+        }
+
+        .nx-radio__circle {
+            forced-color-adjust: none;
+            border-color: buttonText !important;
+            background-color: buttonFace !important;
+        }
+
+        .nx-radio__input:checked + .nx-radio__label {
+            .nx-radio__circle {
+                border-color: highlight !important;
+            }
+
+            .nx-radio__dot {
+                background-color: highlight !important;
+            }
+        }
+
+        .nx-radio__input:disabled + .nx-radio__label {
+            color: GrayText !important;
+            opacity: 1;
+
+            .nx-radio__circle {
+                border-color: GrayText !important;
+            }
+        }
+
+        .nx-radio__input:checked:disabled + .nx-radio__label {
+            .nx-radio__dot {
+                background-color: GrayText !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,40 @@
+<input
+    #input
+    [type]="inputType"
+    [checked]="checked"
+    [value]="value || null"
+    [attr.disabled]="disabled || null"
+    (change)="_onInteractionEvent($event)"
+    (blur)="onTouchedCallback($event)"
+    [attr.id]="id"
+    [attr.name]="name"
+    (click)="_onInputClick($event)"
+    [required]="required"
+    [attr.aria-required]="required"
+    [attr.tabindex]="tabindex"
+    [attr.aria-invalid]="_errorState"
+    [attr.aria-describedby]="_errorListIds || null"
+/>
+<label [attr.for]="id">
+    <div class="nx-card-highlight" *ngIf="highlight">
+        <ng-content select="[nxHighlightHeader]"></ng-content>
+    </div>
+    <div class="nx-card-inner">
+        <ng-container *ngTemplateOutlet="indicatorElement"></ng-container>
+
+        <div class="content">
+            <ng-content select="nx-card-header"></ng-content>
+            <ng-content></ng-content>
+            <ng-content select="nx-card-footer"></ng-content>
+        </div>
+    </div>
+</label>
+
+<ng-content *ngIf="_errorState" select="nx-error"></ng-content>
+
+<ng-template #indicatorElement>
+    <span [class]="['indicator-element', inputType]">
+        <nx-icon *ngIf="checked && inputType === 'checkbox'" name="check" aria-hidden="true"></nx-icon>
+        <div *ngIf="checked && inputType === 'radio'" class="check-dot"></div>
+    </span>
+</ng-template>

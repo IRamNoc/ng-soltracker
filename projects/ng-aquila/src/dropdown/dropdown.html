@@ -1,0 +1,75 @@
+<!-- input and stuff-->
+<div cdkOverlayOrigin #fallbackOrigin="cdkOverlayOrigin" class="nx-dropdown__container" #trigger [nxTooltip]="_tooltipText">
+    <div class="nx-dropdown__rendered" [id]="renderedValueId">
+        <span *ngIf="empty && placeholder">{{ placeholder }}</span>
+        <ng-container *ngIf="!empty">
+            <ng-container *ngTemplateOutlet="closedDropdownLabel"></ng-container>
+        </ng-container>
+    </div>
+    <div class="nx-dropdown__icon">
+        <nx-icon class="nx-dropdown__chevron" name="chevron-down" aria-hidden="true"></nx-icon>
+    </div>
+</div>
+
+<ng-template #defaultClosedDropdownLabel>
+    <span *ngIf="triggerValue">{{ triggerValue }}</span>
+</ng-template>
+
+<!-- overlay -->
+<ng-template
+    cdkConnectedOverlay
+    cdkConnectedOverlayHasBackdrop
+    cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop"
+    [cdkConnectedOverlayScrollStrategy]="_scrollStrategy"
+    [cdkConnectedOverlayOrigin]="overlayOrigin"
+    [cdkConnectedOverlayOpen]="panelOpen"
+    [cdkConnectedOverlayPositions]="_positions"
+    [cdkConnectedOverlayMinWidth]="_overlayWidth"
+    [cdkConnectedOverlayFlexibleDimensions]="true"
+    [cdkConnectedOverlayViewportMargin]="_overlayViewportMargin"
+    [cdkConnectedOverlayPush]="true"
+    (backdropClick)="closePanel()"
+    (attach)="_onAttached()"
+    (detach)="closePanel()"
+>
+    <div
+        class="nx-dropdown__panel"
+        [class.has-filter]="showFilter"
+        [class.nx-dropdown__panel--in-outline-field]="_isInOutlineField"
+        (keydown)="_handleKeydown($event)"
+        [dir]="dir"
+        #panel
+    >
+        <div class="nx-dropdown__panel-header" *ngIf="label">{{ label }}</div>
+        <div class="nx-dropdown__filter" *ngIf="showFilter">
+            <input
+                class="nx-dropdown__filter-input"
+                [class.is-filled]="!isFilterEmpty"
+                #filterInput
+                [type]="filterInputType"
+                (input)="_onFilter($event)"
+                [placeholder]="filterPlaceholder"
+            />
+            <span class="nx-dropdown__filter-icon" *ngIf="!isFilterEmpty" (click)="_clearFilter()">
+                <nx-icon name="close"></nx-icon>
+            </span>
+        </div>
+
+        <div
+            class="nx-dropdown__panel-body"
+            tabindex="-1"
+            role="listbox"
+            [id]="modalId"
+            #panelBody
+            [attr.aria-activedescendant]="_getAriaActiveDescendant()"
+            [attr.aria-multiselectable]="isMultiSelect"
+        >
+            <ng-content></ng-content>
+            <ng-container *ngFor="let option of options">
+                <nx-dropdown-item (onSelectionChange)="_onSelect($event.item, $event.isUserInput, option)" [value]="option.value"
+                    >{{ _getLabel(option) }}</nx-dropdown-item
+                >
+            </ng-container>
+        </div>
+    </div>
+</ng-template>

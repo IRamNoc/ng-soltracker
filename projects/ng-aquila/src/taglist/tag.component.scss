@@ -1,0 +1,69 @@
+@import '../shared-styles/index';
+
+$border-size: nx-border-size(m);
+
+@function tag-padding($padding) {
+    @return $padding - $border-size;
+}
+
+:host {
+    @include type-style(taglist);
+    height: auto;
+    max-width: 100%;
+    color: v(taglist-color);
+    background-color: v(taglist-background-color);
+    padding: tag-padding(nx-spacer(2xs)) tag-padding(nx-spacer(s));
+    display: flex;
+    align-items: center;
+    border: $border-size solid v(taglist-border-color);
+    border-radius: nx-border-radius(s);
+    user-select: none;
+    transition:
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+        border-color: v(taglist-hover-border-color);
+        color: v(taglist-hover-color);
+        background-color: v(taglist-hover-background-color);
+    }
+
+    &:focus {
+        outline: 2px solid transparent;
+    }
+}
+
+:host.cdk-keyboard-focused {
+    @include focus-style;
+}
+
+.nx-tag__close-icon {
+    outline: none;
+    display: block;
+    font-size: v(taglist-close-icon-size);
+}
+
+.nx-tag__close {
+    margin-left: nx-spacer(2xs);
+
+    :host-context([dir='rtl']) & {
+        margin-right: nx-spacer(2xs);
+        margin-left: initial;
+    }
+}
+
+:host-context(.nx-taglist--keyword) {
+    padding: tag-padding(nx-spacer(s)) tag-padding(nx-spacer(m));
+}
+
+@media screen and (forced-colors: active) {
+    :host,
+    :host:hover,
+    :host:focus {
+        color: buttonText;
+        background-color: buttonFace;
+        border-color: buttonText;
+        forced-colors-adjust: none;
+    }
+}

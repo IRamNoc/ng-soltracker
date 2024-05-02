@@ -1,0 +1,14 @@
+<nx-formfield label="Birthday">
+    <input
+        nxDatefield
+        nxInput
+        [(ngModel)]="inputString"
+        [datepicker]="birthdayDatepicker"
+    />
+
+    <nx-datepicker-toggle
+        [for]="birthdayDatepicker"
+        nxFormfieldSuffix
+    ></nx-datepicker-toggle>
+    <nx-datepicker #birthdayDatepicker></nx-datepicker>
+</nx-formfield>

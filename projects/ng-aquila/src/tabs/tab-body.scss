@@ -1,0 +1,14 @@
+@import '../shared-styles/index';
+
+:host {
+    display: block;
+
+    &:focus {
+        outline: none;
+    }
+
+    &.cdk-keyboard-focused {
+        @include focus-style;
+        border-radius: nx-border-radius(s);
+    }
+}
