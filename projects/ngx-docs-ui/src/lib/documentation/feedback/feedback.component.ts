@@ -1,6 +1,6 @@
 import { FocusMonitor } from '@angular/cdk/a11y';
 import { Component, ElementRef, Inject, Input, OnDestroy, OnInit, Optional, ViewChild } from '@angular/core';
-import { NxBreakpoints, NxViewportService } from '@aposin/ng-aquila/utils';
+import { NxBreakpoints, NxViewportService } from '@aposin/ng-soltracker/utils';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 

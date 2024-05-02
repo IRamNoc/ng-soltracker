@@ -12,7 +12,7 @@ In the app.module.ts add these imports
 
 ```ts
 import { NXV_MANIFEST_TOKEN, NxvDocumentationModule } from '@aposin/ngx-docs-ui';
-import * as NX_MANIFEST from '@aposin/ng-aquila/documentation/manifest.json';
+import * as NX_MANIFEST from '@aposin/ng-soltracker/documentation/manifest.json';
 import { RouterModule } from '@angular/router';
 
 const ROUTES = [

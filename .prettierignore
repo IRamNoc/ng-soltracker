@@ -56,10 +56,10 @@ Thumbs.db
 /reports
 
 # ngx-docs-cli generated files
-/projects/ng-aquila/documentation/generated
+/projects/ng-soltracker/documentation/generated
 
 # component-specific
-/projects/ng-aquila/src/phone-input/metadata.json
+/projects/ng-soltracker/src/phone-input/metadata.json
 
 # template html files seem to have hard time with prettier sometimes
 /projects/ngx-docs-cli/**/*.template.html

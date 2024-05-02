@@ -1,4 +1,4 @@
-@import '../../../../ng-aquila/src/shared-styles/theming/theming';
+@import '../../../../ng-soltracker/src/shared-styles/theming/theming';
 @import '../styles/themes/docs-theme';
 
 $message-border-width: 1px;
@@ -327,7 +327,7 @@ a {
 }
 
 // GRID EXAMPLE STYLES
-// The grid styles are also added in projects/ng-aquila/documentation/assets/stack-blitz/src/styles.scss
+// The grid styles are also added in projects/ng-soltracker/documentation/assets/stack-blitz/src/styles.scss
 // to make the grid examples work in Stackblitz.
 .grid-tiers-example__container {
     height: 64px;

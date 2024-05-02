@@ -12,7 +12,7 @@ const jsdocPackage = require('dgeni-packages/jsdoc');
 const nunjucksPackage = require('dgeni-packages/nunjucks');
 const typescriptPackage = require('dgeni-packages/typescript');
 
-export const apiDocsPackage = new Package('ng-aquila-api-docs', [jsdocPackage, nunjucksPackage, typescriptPackage]);
+export const apiDocsPackage = new Package('ng-soltracker-api-docs', [jsdocPackage, nunjucksPackage, typescriptPackage]);
 
 // Processor that filters out duplicate exports that should not be shown in the docs.
 apiDocsPackage.processor(new FilterDuplicateExports());

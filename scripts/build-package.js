@@ -15,7 +15,7 @@ const glob = require('glob');
  */
 
 function compileTheme(theme) {
-    execSync(`sass --no-source-map projects/ng-aquila/src/shared-styles/theming/prebuilt/${theme}.scss dist/ng-aquila/themes/${theme}.css`, {
+    execSync(`sass --no-source-map projects/ng-soltracker/src/shared-styles/theming/prebuilt/${theme}.scss dist/ng-soltracker/themes/${theme}.css`, {
         stdio: 'inherit',
     });
 }
@@ -27,7 +27,7 @@ function compileAgGridTheme() {
         nodeModulesPath = '../node_modules';
     }
     execSync(
-        `sass --no-source-map --load-path=${nodeModulesPath} projects/ng-aquila/src/ag-grid/ag-theme-aquila.scss dist/ng-aquila/themes/ag-theme-aquila.css`,
+        `sass --no-source-map --load-path=${nodeModulesPath} projects/ng-soltracker/src/ag-grid/ag-theme-soltracker.scss dist/ng-soltracker/themes/ag-theme-soltracker.css`,
         {
             stdio: 'inherit',
         },
@@ -43,12 +43,12 @@ function globCopy(sourcePath, destinationPath, globPath) {
 }
 
 function compileSchematics() {
-    rimrafSync('./dist/ng-aquila/schematics');
+    rimrafSync('./dist/ng-soltracker/schematics');
 
-    execSync(`tsc -p ./projects/ng-aquila/tsconfig.schematics.json`, { stdio: 'inherit' });
+    execSync(`tsc -p ./projects/ng-soltracker/tsconfig.schematics.json`, { stdio: 'inherit' });
     console.log('============================');
     console.log('  Copying schematic assets');
-    globCopy('./projects/ng-aquila/src/schematics', './dist/ng-aquila/schematics', '/**/*.json');
+    globCopy('./projects/ng-soltracker/src/schematics', './dist/ng-soltracker/schematics', '/**/*.json');
 }
 
 console.log('============================');
@@ -62,13 +62,13 @@ compileAgGridTheme();
 console.log('============================');
 console.log('  Building utility css');
 ['utilities', 'normalize', 'compatibility'].forEach(file => {
-    execSync(`sass --no-source-map projects/ng-aquila/src/shared-styles/${file}.scss dist/ng-aquila/css/${file}.css`, { stdio: 'inherit' });
+    execSync(`sass --no-source-map projects/ng-soltracker/src/shared-styles/${file}.scss dist/ng-soltracker/css/${file}.css`, { stdio: 'inherit' });
 });
 try {
-    fs.readdirSync(path.join(__dirname, '../projects/ng-aquila/src/shared-styles/compatibility'), {})
+    fs.readdirSync(path.join(__dirname, '../projects/ng-soltracker/src/shared-styles/compatibility'), {})
         .map(file => file.replace('.scss', ''))
         .forEach(file => {
-            execSync(`sass --no-source-map projects/ng-aquila/src/shared-styles/compatibility/${file}.scss dist/ng-aquila/css/compatibility/${file}.css`, {
+            execSync(`sass --no-source-map projects/ng-soltracker/src/shared-styles/compatibility/${file}.scss dist/ng-soltracker/css/compatibility/${file}.css`, {
                 stdio: 'inherit',
             });
         });
@@ -85,13 +85,13 @@ compileSchematics();
 
 console.log('============================');
 console.log('  Copying scss sources');
-fs.copy(`projects/ng-aquila/src/shared-styles/theming`, `dist/ng-aquila/styles`);
+fs.copy(`projects/ng-soltracker/src/shared-styles/theming`, `dist/ng-soltracker/styles`);
 
 console.log('============================');
 console.log('  Copying other assets');
-fs.copy('README.md', 'dist/ng-aquila/README.md');
-fs.copy('LICENSE', 'dist/ng-aquila/LICENSE');
-globCopy('./projects/ng-aquila/src/schematics', './dist/ng-aquila/schematics', '/*/files/**');
+fs.copy('README.md', 'dist/ng-soltracker/README.md');
+fs.copy('LICENSE', 'dist/ng-soltracker/LICENSE');
+globCopy('./projects/ng-soltracker/src/schematics', './dist/ng-soltracker/schematics', '/*/files/**');
 
 console.log('============================');
 console.log('');

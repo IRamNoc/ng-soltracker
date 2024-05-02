@@ -79,34 +79,34 @@ node('adp-jenkins-agent-nodejs-with-azure-cli') {
     }
   }
 
-  stage("Test ng-aquila") {
-    shared.withNotification('ci/test/ng-aquila', "Test ng-aquila") {
-      echo 'Testing ng-aquila'
+  stage("Test ng-soltracker") {
+    shared.withNotification('ci/test/ng-soltracker', "Test ng-soltracker") {
+      echo 'Testing ng-soltracker'
 
       sh 'COMPACT_TEST_RESULTS=true npm run test:lib:coverage'
       // The unit test will generate some report files which we want to save in the jenkins job (junit log & coverage)
-      junit 'reports/ng-aquila/junit/*.xml'
+      junit 'reports/ng-soltracker/junit/*.xml'
       publishHTML target: [
         allowMissing: false,
         alwaysLinkToLastBuild: false,
         keepAll: true,
-        reportDir: 'reports/ng-aquila/coverage',
+        reportDir: 'reports/ng-soltracker/coverage',
         reportFiles: 'index.html',
-        reportName: 'Coverage Report Aquila (Istanbul)'
+        reportName: 'Coverage Report soltracker (Istanbul)'
       ]
     }
   }
 
-  stage("Test ng-aquila/schematics") {
-    shared.withNotification('ci/test/ng-aquila/schematics', "Test ng-aquila/schematics") {
-      echo 'Testing ng-aquila/schematics'
+  stage("Test ng-soltracker/schematics") {
+    shared.withNotification('ci/test/ng-soltracker/schematics', "Test ng-soltracker/schematics") {
+      echo 'Testing ng-soltracker/schematics'
       sh 'npm run test:schematics'
     }
   }
 
-  stage("Build ng-aquila") {
-    shared.withNotification('ci/build/ng-aquila', "Build ng-aquila") {
-      echo 'Building ng-aquila'
+  stage("Build ng-soltracker") {
+    shared.withNotification('ci/build/ng-soltracker', "Build ng-soltracker") {
+      echo 'Building ng-soltracker'
       sh 'npm run build:lib'
     }
   }

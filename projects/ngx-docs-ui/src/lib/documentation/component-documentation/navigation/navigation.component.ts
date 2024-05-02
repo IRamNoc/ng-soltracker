@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { NxFlatTreeControl, NxFlatTreeNode, NxTreeFlatDataSource } from '@aposin/ng-aquila/tree';
+import { NxFlatTreeControl, NxFlatTreeNode, NxTreeFlatDataSource } from '@aposin/ng-soltracker/tree';
 import { Subject } from 'rxjs';
 
 import { ComponentDescriptor } from '../../../core/manifest';

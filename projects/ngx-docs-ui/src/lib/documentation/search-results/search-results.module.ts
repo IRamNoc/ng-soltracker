@@ -2,12 +2,12 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NxBadgeModule } from '@aposin/ng-aquila/badge';
-import { NxGridModule } from '@aposin/ng-aquila/grid';
-import { NxIconModule } from '@aposin/ng-aquila/icon';
-import { NxLinkModule } from '@aposin/ng-aquila/link';
-import { NxMessageModule } from '@aposin/ng-aquila/message';
-import { NxSidebarModule } from '@aposin/ng-aquila/sidebar';
+import { NxBadgeModule } from '@aposin/ng-soltracker/badge';
+import { NxGridModule } from '@aposin/ng-soltracker/grid';
+import { NxIconModule } from '@aposin/ng-soltracker/icon';
+import { NxLinkModule } from '@aposin/ng-soltracker/link';
+import { NxMessageModule } from '@aposin/ng-soltracker/message';
+import { NxSidebarModule } from '@aposin/ng-soltracker/sidebar';
 
 import { NxvSearchResultsComponent } from './search-results.component';
 

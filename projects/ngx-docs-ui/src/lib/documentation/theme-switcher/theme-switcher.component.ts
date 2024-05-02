@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { NxIconRegistry } from '@aposin/ng-aquila/icon';
+import { NxIconRegistry } from '@aposin/ng-soltracker/icon';
 
 import { Theme } from './theme-switcher.service';
 

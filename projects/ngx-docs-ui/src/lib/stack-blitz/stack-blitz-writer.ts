@@ -17,7 +17,7 @@ const DOCS_CONTENT_PATH = 'docs-content/examples-source';
 
 const TEMPLATE_PATH = 'assets/stack-blitz/';
 const TEMPLATE_FILES = [
-    'src/app/aquila.module.ts',
+    'src/app/soltracker.module.ts',
     'src/index.html',
     'src/main.ts',
     'src/styles.scss',
@@ -27,11 +27,11 @@ const TEMPLATE_FILES = [
     'tsconfig.app.json',
 ];
 
-const ASSETS_BASE_PATH = 'https://allianz.github.io/ng-aquila/';
+const ASSETS_BASE_PATH = 'https://allianz.github.io/ng-soltracker/';
 
 const TEST_TEMPLATE_PATH = 'assets/stack-blitz-tests/';
 const TEST_TEMPLATE_FILES = [
-    'src/app/aquila.module.ts',
+    'src/app/soltracker.module.ts',
     'src/index.html',
     'src/main.ts',
     'src/styles.scss',
@@ -44,10 +44,10 @@ const TEST_TEMPLATE_FILES = [
     'tsconfig.spec.json',
 ];
 
-const TAGS: string[] = ['allianz', 'aquila', 'example'];
+const TAGS: string[] = ['allianz', 'soltracker', 'example'];
 
 const angularVersion = '^17.0.0';
-const aquilaVersion = '^17.0.0';
+const soltrackerVersion = '^17.0.0';
 
 const dependencies = {
     '@angular/animations': angularVersion,
@@ -59,7 +59,7 @@ const dependencies = {
     '@angular/platform-browser': angularVersion,
     '@angular/platform-browser-dynamic': angularVersion,
     '@angular/router': angularVersion,
-    '@aposin/ng-aquila': aquilaVersion,
+    '@aposin/ng-soltracker': soltrackerVersion,
     'ag-grid-angular': '^30.1.0',
     'ag-grid-community': '^30.1.0',
     dayjs: '^1.11.5',
@@ -82,7 +82,7 @@ const testDependencies = {
     '@angular/platform-browser': angularVersion,
     '@angular/platform-browser-dynamic': angularVersion,
     '@angular/router': angularVersion,
-    '@aposin/ng-aquila': aquilaVersion,
+    '@aposin/ng-soltracker': soltrackerVersion,
     'i18n-iso-countries': '^7.4.0',
     iban: '^0.0.14',
     jasmine: '^5.1.0',
@@ -222,38 +222,38 @@ export class StackBlitzWriter {
 
     /**
      * The StackBlitz template assets contain placeholder names for the examples:
-     * "<aquila-docs-example>" and "AquilaDocsExample".
+     * "<soltracker-docs-example>" and "soltrackerDocsExample".
      * This will replace those placeholders with the names from the example metadata,
      * e.g. "<button-example>" and "ButtonExample".
      */
     _replaceExamplePlaceholderNames(data: ExampleData, fileName: string, fileContent: string): string {
         if (fileName === 'src/index.html') {
             // Replace the component selector in `index,html`.
-            // For example, <aquila-docs-example></aquila-docs-example> will be replaced as
+            // For example, <soltracker-docs-example></soltracker-docs-example> will be replaced as
             // <button-example></button-example>
-            fileContent = fileContent.replace(/aquila-docs-example/g, data.selectorName);
-            fileContent = fileContent.replace(/\{\{version\}\}/g, aquilaVersion);
+            fileContent = fileContent.replace(/soltracker-docs-example/g, data.selectorName);
+            fileContent = fileContent.replace(/\{\{version\}\}/g, soltrackerVersion);
         } else if (fileName === 'src/main.ts') {
             const joinedComponentNames = data.componentNames.join(', ');
             // Replace the component name in `main.ts`.
-            // Replace `import { AquilaDocsExampleComponent } from 'aquila-docs-example'`
+            // Replace `import { soltrackerDocsExampleComponent } from 'soltracker-docs-example'`
             // will be replaced as `import { ButtonExampleComponent } from './button-example'`
-            fileContent = fileContent.replace(/\{ AquilaDocsExample \}/g, `{ ${joinedComponentNames} }`);
+            fileContent = fileContent.replace(/\{ soltrackerDocsExample \}/g, `{ ${joinedComponentNames} }`);
 
-            // Replace `declarations: [AquilaDocsExample]`
+            // Replace `declarations: [soltrackerDocsExample]`
             // will be replaced as `declarations: [ButtonExampleComponent]`
-            fileContent = fileContent.replace(/declarations: \[AquilaDocsExample\]/g, `declarations: [${joinedComponentNames}]`);
+            fileContent = fileContent.replace(/declarations: \[soltrackerDocsExample\]/g, `declarations: [${joinedComponentNames}]`);
 
-            // Replace `bootstrap: [AquilaDocsExample]`
+            // Replace `bootstrap: [soltrackerDocsExample]`
             // will be replaced as `bootstrap: [ButtonExampleComponent]`
             // This assumes the first component listed in the main component
-            fileContent = fileContent.replace(/bootstrap: \[AquilaDocsExample\]/g, `bootstrap: [${data.componentNames[0]}]`);
+            fileContent = fileContent.replace(/bootstrap: \[soltrackerDocsExample\]/g, `bootstrap: [${data.componentNames[0]}]`);
 
-            // Replace import ... from `aquila-docs-example`
+            // Replace import ... from `soltracker-docs-example`
             // will be replaced as `button-example`
             const dotIndex = data.indexFilename.lastIndexOf('.');
             const importFileName = data.indexFilename.slice(0, dotIndex === -1 ? undefined : dotIndex);
-            fileContent = fileContent.replace(/aquila-docs-example/g, importFileName);
+            fileContent = fileContent.replace(/soltracker-docs-example/g, importFileName);
         }
         return fileContent;
     }

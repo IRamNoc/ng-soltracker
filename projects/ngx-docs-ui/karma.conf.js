@@ -17,7 +17,7 @@ module.exports = function (config) {
         files: [
             { pattern: '../../node_modules/@angular/cdk/a11y-prebuilt.css', watched: false },
             { pattern: '../../node_modules/@angular/cdk/overlay-prebuilt.css', watched: false },
-            { pattern: '../../dist/ng-aquila/css/normalize.css', watched: false },
+            { pattern: '../../dist/ng-soltracker/css/normalize.css', watched: false },
         ],
     });
 };

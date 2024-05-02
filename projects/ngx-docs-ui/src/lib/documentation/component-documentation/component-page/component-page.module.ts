@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxBadgeModule } from '@aposin/ng-aquila/badge';
-import { NxMessageModule } from '@aposin/ng-aquila/message';
-import { NxTabsModule } from '@aposin/ng-aquila/tabs';
+import { NxBadgeModule } from '@aposin/ng-soltracker/badge';
+import { NxMessageModule } from '@aposin/ng-soltracker/message';
+import { NxTabsModule } from '@aposin/ng-soltracker/tabs';
 
 import { DocViewerModule } from '../../../doc-viewer/doc-viewer.module';
 import { ExampleLoaderModule } from '../../../example-loader/example-loader.module';

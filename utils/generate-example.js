@@ -17,8 +17,8 @@ const mkdir = util.promisify(fs.mkdir);
 
 const componentName = process.argv[2];
 const exampleName = process.argv[3];
-const examplePath = './projects/ng-aquila/documentation/examples';
-const srcPath = './projects/ng-aquila/src';
+const examplePath = './projects/ng-soltracker/documentation/examples';
+const srcPath = './projects/ng-soltracker/src';
 const destination = path.join(examplePath, componentName);
 const rootPath = process.cwd();
 

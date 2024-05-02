@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NxButtonModule } from '@aposin/ng-aquila/button';
-import { NxIconModule } from '@aposin/ng-aquila/icon';
+import { NxButtonModule } from '@aposin/ng-soltracker/button';
+import { NxIconModule } from '@aposin/ng-soltracker/icon';
 import { ColorPickerModule } from 'ngx-color-picker';
 
 import { CssVarSidebarComponent } from './css-var-sidebar-component';

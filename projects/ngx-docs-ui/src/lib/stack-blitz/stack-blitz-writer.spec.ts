@@ -79,7 +79,7 @@ describe('StackBlitzWriter', () => {
             expect(form.elements[0].getAttribute('name')).toBe('tags[0]');
             expect(form.elements[0].getAttribute('value')).toBe('allianz');
             expect(form.elements[1].getAttribute('name')).toBe('tags[1]');
-            expect(form.elements[1].getAttribute('value')).toBe('aquila');
+            expect(form.elements[1].getAttribute('value')).toBe('soltracker');
             expect(form.elements[2].getAttribute('name')).toBe('tags[2]');
             expect(form.elements[2].getAttribute('value')).toBe('example');
 
@@ -93,7 +93,7 @@ describe('StackBlitzWriter', () => {
             expect(form.elements[6].getAttribute('name')).toBe('files[src/index.html]');
             expect(form.elements[7].getAttribute('name')).toBe('files[src/styles.scss]');
             expect(form.elements[8].getAttribute('name')).toBe('files[src/main.ts]');
-            expect(form.elements[9].getAttribute('name')).toBe('files[src/app/aquila-module.ts]');
+            expect(form.elements[9].getAttribute('name')).toBe('files[src/app/soltracker-module.ts]');
             expect(form.elements[10].getAttribute('name')).toBe('files[src/app/test.ts]');
             expect(form.elements[11].getAttribute('name')).toBe('files[src/app/test.html]');
             expect(form.elements[12].getAttribute('name')).toBe('files[src/app/src/detail.ts]');
@@ -104,13 +104,13 @@ describe('StackBlitzWriter', () => {
         it('converts path to absolute for images', () => {
             const fakeFileContents = '<img src="assets/images/blah.jpeg" />';
             const result = stackBlitzWriter._replaceImagePaths(fakeFileContents);
-            expect(result).toBe('<img src="https://allianz.github.io/ng-aquila/assets/images/blah.jpeg" />');
+            expect(result).toBe('<img src="https://allianz.github.io/ng-soltracker/assets/images/blah.jpeg" />');
         });
 
         it('converts path to absolute for logos', () => {
             const fakeFileContents = '<img src="assets/logos/blah.svg" />';
             const result = stackBlitzWriter._replaceImagePaths(fakeFileContents);
-            expect(result).toBe('<img src="https://allianz.github.io/ng-aquila/assets/logos/blah.svg" />');
+            expect(result).toBe('<img src="https://allianz.github.io/ng-soltracker/assets/logos/blah.svg" />');
         });
 
         it('does not convert path for other assets', () => {
@@ -131,7 +131,7 @@ const TEST_URLS = [
     '/assets/stack-blitz/src/index.html',
     '/assets/stack-blitz/src/styles.scss',
     '/assets/stack-blitz/src/main.ts',
-    '/assets/stack-blitz/src/app/aquila-module.ts',
+    '/assets/stack-blitz/src/app/soltracker-module.ts',
     `/docs-content/examples-source/cdk/my-comp/${testExampleId}/test.ts`,
     `/docs-content/examples-source/cdk/my-comp/${testExampleId}/test.html`,
     `/docs-content/examples-source/cdk/my-comp/${testExampleId}/src/detail.ts`,

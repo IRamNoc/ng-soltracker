@@ -52,20 +52,20 @@ Thumbs.db
 /reports
 
 # ngx-docs-cli generated files
-/projects/ng-aquila/documentation/generated
+/projects/ng-soltracker/documentation/generated
 
 # stackblitz assets
-/projects/ng-aquila/documentation/assets
+/projects/ng-soltracker/documentation/assets
 
 # component-specific
-/projects/ng-aquila/src/phone-input/metadata.json
+/projects/ng-soltracker/src/phone-input/metadata.json
 
 # template html files seem to have hard time with prettier sometimes
 /projects/ngx-docs-cli/**/*.template.html
 /projects/ngx-docs-cli/**/macros.html
 
 # exclude any other non-angular-template html files
-/projects/ng-aquila/documentation/assets/stack-blitz/src/index.html
-/projects/ng-aquila/documentation/assets/stack-blitz-tests/src/index.html
+/projects/ng-soltracker/documentation/assets/stack-blitz/src/index.html
+/projects/ng-soltracker/documentation/assets/stack-blitz-tests/src/index.html
 /projects/opensource-documentation/src/index.html
 /projects/opensource-documentation/src/404.html

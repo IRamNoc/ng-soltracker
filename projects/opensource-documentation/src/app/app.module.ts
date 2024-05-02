@@ -3,13 +3,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
-import { NxButtonModule } from '@aposin/ng-aquila/button';
-import { NxDocumentationIconModule } from '@aposin/ng-aquila/documentation-icons';
-import { NxFooterModule } from '@aposin/ng-aquila/footer';
-import { NxFormfieldModule } from '@aposin/ng-aquila/formfield';
-import { NxGridModule } from '@aposin/ng-aquila/grid';
-import { NxInputModule } from '@aposin/ng-aquila/input';
-import { NxMaskModule } from '@aposin/ng-aquila/mask';
+import { NxButtonModule } from '@aposin/ng-soltracker/button';
+import { NxDocumentationIconModule } from '@aposin/ng-soltracker/documentation-icons';
+import { NxFooterModule } from '@aposin/ng-soltracker/footer';
+import { NxFormfieldModule } from '@aposin/ng-soltracker/formfield';
+import { NxGridModule } from '@aposin/ng-soltracker/grid';
+import { NxInputModule } from '@aposin/ng-soltracker/input';
+import { NxMaskModule } from '@aposin/ng-soltracker/mask';
 import {
     BaseLazyLoadingService,
     DocVersions,
@@ -24,9 +24,9 @@ import {
     NxvDocumentationModule,
 } from '@aposin/ngx-docs-ui';
 import { ColorPickerModule } from 'ngx-color-picker';
-import { LazyLoadingService } from 'projects/ng-aquila/documentation/generated/lazy-loading.service';
-import MANIFEST from 'projects/ng-aquila/documentation/generated/manifest.json';
-import PACKAGE from 'projects/ng-aquila/src/package.json';
+import { LazyLoadingService } from 'projects/ng-soltracker/documentation/generated/lazy-loading.service';
+import MANIFEST from 'projects/ng-soltracker/documentation/generated/manifest.json';
+import PACKAGE from 'projects/ng-soltracker/src/package.json';
 import VERSIONS from 'versions.json';
 
 import { AppComponent } from './app.component';
@@ -65,7 +65,7 @@ const LOGO_PATH: LogoPath = {
 };
 
 const GITHUB_REPO_LINK: GithubLinkConfig = {
-    repoLink: 'https://github.com/allianz/ng-aquila',
+    repoLink: 'https://github.com/allianz/ng-soltracker',
     logoAltText: 'Github Brand Logo',
 };
 

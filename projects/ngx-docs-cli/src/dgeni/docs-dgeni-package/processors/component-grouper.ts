@@ -68,13 +68,13 @@ export class ComponentGrouper implements Processor {
         docs.forEach(doc => {
             const documentInfo = getDocumentPackageInfo(doc);
             const packageName = documentInfo.packageName;
-            const packageDisplayName = 'Aquila';
+            const packageDisplayName = 'soltracker';
             const packageJsonPath = path.join(doc.basePath, packageName, './package.json');
             const ngPackageJsonPath = path.join(doc.basePath, packageName, './ng-package.json');
 
-            let moduleImportPath = '@aposin/ng-aquila';
+            let moduleImportPath = '@aposin/ng-soltracker';
             if (fs.existsSync(packageJsonPath) || fs.existsSync(ngPackageJsonPath)) {
-                moduleImportPath = `@aposin/ng-aquila/${packageName}`;
+                moduleImportPath = `@aposin/ng-soltracker/${packageName}`;
             }
 
             const groupName = documentInfo.name;

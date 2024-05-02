@@ -18,11 +18,11 @@ module.exports = {
         tag: true,
     },
     // read from here
-    packageFiles: ['projects/ng-aquila/src/package.json'],
+    packageFiles: ['projects/ng-soltracker/src/package.json'],
     // set version in those files
-    bumpFiles: ['projects/ng-aquila/src/package.json'],
+    bumpFiles: ['projects/ng-soltracker/src/package.json'],
     infile: 'CHANGELOG.md',
-    path: 'projects/ng-aquila',
+    path: 'projects/ng-soltracker',
     /* the preset seems to not work somehow disabling it for now */
     //preset: 'angular',
     releaseCommitMessageFormat: 'release: cut {{currentTag}}',

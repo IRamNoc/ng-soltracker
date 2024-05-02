@@ -3,9 +3,9 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "ng-aquila": {
-            "root": "projects/ng-aquila",
-            "sourceRoot": "projects/ng-aquila/src",
+        "ng-soltracker": {
+            "root": "projects/ng-soltracker",
+            "sourceRoot": "projects/ng-soltracker/src",
             "projectType": "library",
             "prefix": "nx",
             "schematics": {
@@ -26,14 +26,14 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:ng-packagr",
                     "options": {
-                        "project": "projects/ng-aquila/src/ng-package.json"
+                        "project": "projects/ng-soltracker/src/ng-package.json"
                     },
                     "configurations": {
                         "production": {
-                            "tsConfig": "projects/ng-aquila/tsconfig.lib.prod.json"
+                            "tsConfig": "projects/ng-soltracker/tsconfig.lib.prod.json"
                         },
                         "development": {
-                            "tsConfig": "projects/ng-aquila/tsconfig.lib.json"
+                            "tsConfig": "projects/ng-soltracker/tsconfig.lib.json"
                         }
                     },
                     "defaultConfiguration": "production"
@@ -41,17 +41,17 @@
                 "test": {
                     "builder": "@angular-devkit/build-angular:karma",
                     "options": {
-                        "main": "projects/ng-aquila/test.ts",
+                        "main": "projects/ng-soltracker/test.ts",
                         "polyfills": ["zone.js", "zone.js/testing"],
-                        "include": ["projects/ng-aquila/src/!(schematics)/**/*.spec.ts"],
-                        "tsConfig": "projects/ng-aquila/tsconfig.spec.json",
-                        "karmaConfig": "projects/ng-aquila/karma.conf.js"
+                        "include": ["projects/ng-soltracker/src/!(schematics)/**/*.spec.ts"],
+                        "tsConfig": "projects/ng-soltracker/tsconfig.spec.json",
+                        "karmaConfig": "projects/ng-soltracker/karma.conf.js"
                     }
                 },
                 "lint": {
                     "builder": "@angular-eslint/builder:lint",
                     "options": {
-                        "lintFilePatterns": ["projects/ng-aquila/**/*.ts", "projects/ng-aquila/**/*.html"]
+                        "lintFilePatterns": ["projects/ng-soltracker/**/*.ts", "projects/ng-soltracker/**/*.html"]
                     }
                 }
             }
@@ -113,17 +113,17 @@
                             "projects/opensource-documentation/src/assets",
                             {
                                 "glob": "**/*",
-                                "input": "projects/ng-aquila/documentation/examples/",
+                                "input": "projects/ng-soltracker/documentation/examples/",
                                 "output": "/docs-content/examples-source/"
                             },
                             {
                                 "glob": "**/*",
-                                "input": "projects/ng-aquila/documentation/generated",
+                                "input": "projects/ng-soltracker/documentation/generated",
                                 "output": "/lib-viewer/"
                             },
                             {
                                 "glob": "**/*",
-                                "input": "projects/ng-aquila/documentation/assets/",
+                                "input": "projects/ng-soltracker/documentation/assets/",
                                 "output": "/assets/"
                             },
                             {
@@ -133,7 +133,7 @@
                             },
                             {
                                 "glob": "**/*",
-                                "input": "dist/ng-aquila/themes/",
+                                "input": "dist/ng-soltracker/themes/",
                                 "output": "/assets/"
                             }
                         ],
@@ -141,14 +141,14 @@
                             "node_modules/@angular/cdk/a11y-prebuilt.css",
                             "node_modules/@angular/cdk/overlay-prebuilt.css",
                             "projects/opensource-documentation/src/styles.scss",
-                            "projects/ng-aquila/src/shared-styles/utilities.scss",
+                            "projects/ng-soltracker/src/shared-styles/utilities.scss",
                             "projects/ngx-docs-ui/src/lib/styles/global-styles.scss",
                             "projects/ngx-docs-ui/src/lib/styles/viewer-styles.scss",
                             "node_modules/highlight.js/styles/tomorrow-night-blue.css",
                             "node_modules/@fortawesome/fontawesome-free/css/all.css",
                             "node_modules/ag-grid-community/styles/ag-grid.css",
                             "node_modules/ag-grid-community/styles/ag-theme-alpine.css",
-                            "projects/ng-aquila/src/ag-grid/ag-theme-aquila.scss"
+                            "projects/ng-soltracker/src/ag-grid/ag-theme-soltracker.scss"
                         ]
                     },
                     "configurations": {

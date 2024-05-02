@@ -1,0 +1,7 @@
+{
+    "spec_dir": "/dist/ng-soltracker/schematics",
+    "spec_files": ["**/*[sS]pec.js", "!**/*nospec.js"],
+    "helpers": ["test/helpers/**/*.js"],
+    "stopSpecOnExpectationFailure": false,
+    "random": false
+}

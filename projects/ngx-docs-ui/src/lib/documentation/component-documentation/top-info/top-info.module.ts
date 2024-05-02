@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { NxLinkModule } from '@aposin/ng-aquila/link';
+import { NxLinkModule } from '@aposin/ng-soltracker/link';
 
 import { NxvTopInfoComponent } from './top-info.component';
 

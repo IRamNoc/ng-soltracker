@@ -1,7 +1,7 @@
 import { BidiModule } from '@angular/cdk/bidi';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { NxSpinnerModule } from '@aposin/ng-aquila/spinner';
+import { NxSpinnerModule } from '@aposin/ng-soltracker/spinner';
 
 import { LazyExampleOutletComponent } from './lazy-example-outlet.component';
 

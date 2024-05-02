@@ -2,8 +2,8 @@ import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxActionModule } from '@aposin/ng-aquila/action';
-import { NxTreeModule } from '@aposin/ng-aquila/tree';
+import { NxActionModule } from '@aposin/ng-soltracker/action';
+import { NxTreeModule } from '@aposin/ng-soltracker/tree';
 
 import { NavigationComponent } from './navigation.component';
 
